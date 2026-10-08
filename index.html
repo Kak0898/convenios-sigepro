@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sistema independiente para el levantamiento y monitoreo semestral de convenios."
+    />
+    <meta name="theme-color" content="#102a43" />
+    <title>Levantamiento de Convenio 2.0</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23102a43'/%3E%3Cpath d='M17 18h30v8H17zm0 13h30v15H17z' fill='%23fff'/%3E%3Cpath d='M22 36h20M22 41h13' stroke='%23102a43' stroke-width='3'/%3E%3Ccircle cx='46' cy='48' r='8' fill='%23d72638'/%3E%3Cpath d='m42.5 48 2.2 2.2 4.6-5' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">LC</div>
+        <div>
+          <p class="brand-kicker">Sistema independiente</p>
+          <p class="brand-title">Levantamiento de Convenio 2.0</p>
+        </div>
+      </div>
+      <div class="save-state" id="save-state" aria-live="polite">
+        <span class="save-dot"></span>
+        Borrador local
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <aside class="sidebar" aria-label="Progreso del formulario">
+        <div class="sidebar-intro">
+          <span class="period-pill">1.er semestre</span>
+          <h1>Ficha de monitoreo</h1>
+          <p>Complete una ficha por cada convenio informado.</p>
+        </div>
+
+        <div class="progress-block">
+          <div class="progress-labels">
+            <span>Avance</span>
+            <strong id="progress-value">0%</strong>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+
+        <nav id="step-navigation" class="step-navigation" aria-label="Etapas"></nav>
+
+        <div class="local-note">
+          <span class="local-note-icon" aria-hidden="true">✓</span>
+          <p><strong>Separado de SIGEPRO.</strong> Esta versión no transmite información a otros sistemas.</p>
+        </div>
+      </aside>
+
+      <section class="workspace">
+        <div class="workspace-toolbar">
+          <div>
+            <p class="toolbar-label" id="toolbar-label">Declaración en curso</p>
+            <p class="toolbar-value" id="record-name">Nuevo convenio</p>
+          </div>
+          <div class="toolbar-actions">
+            <button class="ghost-button" type="button" id="records-button">
+              Registros locales <span class="record-count" id="record-count">0</span>
+            </button>
+            <button class="ghost-button" type="button" id="reset-button">Limpiar borrador</button>
+          </div>
+        </div>
+
+        <div id="form-container"></div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
